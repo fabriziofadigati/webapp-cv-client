@@ -1,0 +1,20 @@
+<form class="text-center" #certform = "ngForm">
+    
+    <label for="nome">Nome Certificazione</label>
+    <input type="text" name="nomecertificazione" class="align-center form-control" [(ngModel)]="c.nomecertificazione" maxlength = "45" required #nomecertificazione="ngModel"><br>
+    <div [hidden]="nomecertificazione.valid || nomecertificazione.pristine"
+        class="alert alert-danger">
+        Il Nome Certificazione è un campo obbligatorio
+    </div>
+
+    <label for="settore">Settore</label>
+    <input type="text" name="settore" class="align-center form-control" [(ngModel)]="c.settore" maxlength = "45"  required #settore="ngModel"><br>
+    <div [hidden]="settore.valid || settore.pristine"
+        class="alert alert-danger">
+        Il Settore è un campo obbligatorio
+    </div>
+
+    <button type="button" class="btn btn-primary form-control" [disabled]="!certform.form.valid" (click)="addCert(); certform.form.reset()">Aggiungi</button>
+    <button type="button" class="btn btn-primary form-control" (click)="certform.form.reset()">Reset</button>
+
+</form>

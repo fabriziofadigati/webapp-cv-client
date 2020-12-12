@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Edit CV - CVSearch</title>
+
+</head>
+<body class="bg-light text-dark">
+
+<div class="container-fluid mt-3">
+
+    <div class="row mt-auto">
+        <div class="col-md-2">
+            <button type="button" (click)="Back()" class="btn btn-primary">Back</button>
+        </div>
+        <div class="col-md-8 justify-content-center text-center">
+
+            <h2> Modifica CV </h2>
+
+            <form class="text-center" #addcvform = "ngForm">
+    
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" class="align-center form-control" [(ngModel)]="p.nome" maxlength = "45" required #nome="ngModel"><br>
+                <div [hidden]="nome.valid || nome.pristine"
+                    class="alert alert-danger">
+                    Il Nome è un campo obbligatorio
+                </div>
+    
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" class="align-center form-control" [(ngModel)]="p.cognome" maxlength = "45"  required #cognome="ngModel"><br>
+                <div [hidden]="cognome.valid || cognome.pristine"
+                    class="alert alert-danger">
+                    Il Cognome è un campo obbligatorio
+                </div>
+
+                <label for="codicefiscale">Codice Fiscale</label>
+                <input type="text" name="codicefiscale" class="align-center form-control" [(ngModel)]="p.codicefiscale" maxlength = "16"  required #codicefiscale="ngModel"><br>
+                <div [hidden]="codicefiscale.valid || codicefiscale.pristine"
+                    class="alert alert-danger">
+                    Il Codice Fiscale è un campo obbligatorio
+                </div>
+    
+                <label for="via">Via</label>
+                <input type="text" name="via" class="align-center form-control" [(ngModel)]="p.via" maxlength = "80"  required #via="ngModel"><br>
+                <div [hidden]="via.valid || via.pristine"
+                    class="alert alert-danger">
+                   La Via è un campo obbligatorio
+                </div>
+    
+                <label for="comuneresidenza">Comune Residenza</label>
+                <input type="text" name="comuneresidenza" class="align-center form-control" [(ngModel)]="p.comuneresidenza" maxlength = "45"  required #comuneresidenza="ngModel"><br>
+                <div [hidden]="comuneresidenza.valid || comuneresidenza.pristine"
+                    class="alert alert-danger">
+                    Il Comune di Residenza è obbligatorio
+                </div>
+    
+                <label for="cap">CAP</label>
+                <input type="text" name="comuneresidenza" class="align-center form-control" [(ngModel)]="p.cap" maxlength = "5" required #cap="ngModel"><br>
+                <div [hidden]="cap.valid || cap.pristine"
+                    class="alert alert-danger">
+                    Il CAP è un campo obbligatorio
+                </div>
+    
+                <label for="nazionalità">Nazionalità</label>
+                <input type="text" name="nazionalità" class="align-center form-control" [(ngModel)]="p.nazionalita" maxlength = "45"  required #nazionalita="ngModel"><br>
+                <div [hidden]="nazionalita.valid || nazionalita.pristine"
+                    class="alert alert-danger">
+                    La Nazionalità è un campo obbligatorio
+                </div>
+    
+                <label for="sesso">Sesso</label>
+                    <select name="sesso" class="form-control" [(ngModel)]="p.sesso" #sesso="ngModel" required>
+                        <option value="maschile">Maschile</option>
+                        <option value="femminile">Femminile</option>
+                        <option value="altro">Altro</option>
+                    </select><br>
+                <div [hidden]="sesso.valid || sesso.pristine"
+                    class="alert alert-danger">
+                    Il Sesso è un campo obbligatorio
+                </div>
+    
+                <label for="datanascita">Data di Nascita</label>
+                <input type="date" name="datanascita" class="align-center form-control" [(ngModel)]="p.datanascita" required #datanascita="ngModel"><br>
+                <div [hidden]="datanascita.valid || datanascita.pristine"
+                    class="alert alert-danger">
+                    La Data di Nascita è un campo obbligatorio
+                </div>
+    
+                <label for="email">Email</label>
+                <input type="email" name="email" class="align-center form-control" [(ngModel)]="p.email" maxlength = "60" required #email="ngModel"><br>
+                <div [hidden]="email.valid || email.pristine"
+                    class="alert alert-danger">
+                    La Mail è un campo obbligatorio
+                </div>
+    
+                <label for="numerocell">Cellulare</label>
+                <input type="text" name="numerocell" class="align-center form-control" [(ngModel)]="p.numerocellulare" maxlength = "11"  required #numerocell="ngModel"><br>
+                <div [hidden]="numerocell.valid || numerocell.pristine"
+                    class="alert alert-danger">
+                    Il Numero di Cellulare è un campo obbligatorio
+                </div>
+    
+                <label for="attualeral">Attuale RAL</label>
+                <input type="number" name="attualeral" class="align-center form-control" [(ngModel)]="p.attualeral" ><br>
+    
+                <label for="raldesiderata">RAL desiderata</label>
+                <input type="number" name="raldesiderata" class="align-center form-control" [(ngModel)]="p.desiderataral" ><br>
+    
+                <label for="attualepartitaiva">Attuale Partita IVA</label>
+                <input type="text" name="attualepartitaiva" class="align-center form-control" [(ngModel)]="p.attualepartitaiva" maxlength = "11" ><br>
+    
+                <label for="desideratapartitaiva">Desiderata Partita IVA</label>
+                <input type="text" name="desideratapartitaiva" class="align-center form-control" [(ngModel)]="p.desideratapartitaiva" maxlength = "11" ><br>
+    
+                <label for="stato_occupazionale">Attualmente occupato?</label><br>
+                <label for="si"> Si </label>
+                <input type="checkbox" name="stato_occupazionale" value="" class="align-center form-control" [(ngModel)]="p.statooccupazionale" ><br>
+    
+                <label for="termineoccupazione">Termine Occupazione</label>
+                <input type="date" name="termineoccupazione" class="align-center form-control" [(ngModel)]="p.termineoccupazione" ><br>
+    
+                <label for="allegatocv">Allegato CV</label>
+                <input type="file" name="allegatocv" class="align-center" [(ngModel)]="p.allegatocv" accept=".pdf,.doc,.docx"><br>
+    
+                <button type="submit" class="btn btn-primary btn-success" (click)="onEdit()" [disabled]="!addcvform.form.valid" >Aggiungi CV</button>    
+            </form>
+            <!-- (change)="inputfile($event.target.files)" -->
+        </div>
+        <div class="col-md-2 align-center">
+            <button type="button"(click)="onLogout()" class="btn btn-primary form-control">Logout</button>
+        </div>
+    </div>

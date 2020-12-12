@@ -1,0 +1,175 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<body>
+
+<div class="container-fluid auto bg-light text-dark">
+<h2> Info di base</h2>
+<form class="text-center" #addcvform = "ngForm">
+    
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" class="align-center form-control" [(ngModel)]="persona.nome" maxlength = "45" required #nome="ngModel"><br>
+    <div [hidden]="nome.valid || nome.pristine"
+        class="alert alert-danger">
+        Il Nome è un campo obbligatorio
+    </div>
+
+    <label for="cognome">Cognome</label>
+    <input type="text" name="cognome" class="align-center form-control" [(ngModel)]="persona.cognome" maxlength = "45"  required #cognome="ngModel"><br>
+    <div [hidden]="cognome.valid || cognome.pristine"
+        class="alert alert-danger">
+        Il Cognome è un campo obbligatorio
+    </div>
+
+    <label for="codicefiscale">Codice Fiscale</label>
+    <input type="text" name="codicefiscale" class="align-center form-control" [(ngModel)]="persona.codicefiscale" maxlength = "16"  required #codicefiscale="ngModel"><br>
+    <div [hidden]="codicefiscale.valid || codicefiscale.pristine"
+        class="alert alert-danger">
+        Il Codice Fiscale è un campo obbligatorio
+    </div>
+
+    <label for="via">Via</label>
+    <input type="text" name="via" class="align-center form-control" [(ngModel)]="persona.via" maxlength = "80"  required #via="ngModel"><br>
+    <div [hidden]="via.valid || via.pristine"
+        class="alert alert-danger">
+       La Via è un campo obbligatorio
+    </div>
+
+    <label for="comuneresidenza">Comune Residenza</label>
+    <input type="text" name="comuneresidenza" class="align-center form-control" [(ngModel)]="persona.comuneresidenza" maxlength = "45"  required #comuneresidenza="ngModel"><br>
+    <div [hidden]="comuneresidenza.valid || comuneresidenza.pristine"
+        class="alert alert-danger">
+        Il Comune di Residenza è obbligatorio
+    </div>
+
+    <label for="cap">CAP</label>
+    <input type="text" name="comuneresidenza" class="align-center form-control" [(ngModel)]="persona.cap" maxlength = "5" required #cap="ngModel"><br>
+    <div [hidden]="cap.valid || cap.pristine"
+        class="alert alert-danger">
+        Il CAP è un campo obbligatorio
+    </div>
+
+    <label for="nazionalità">Nazionalità</label>
+    <input type="text" name="nazionalità" class="align-center form-control" [(ngModel)]="persona.nazionalita" maxlength = "45"  required #nazionalita="ngModel"><br>
+    <div [hidden]="nazionalita.valid || nazionalita.pristine"
+        class="alert alert-danger">
+        La Nazionalità è un campo obbligatorio
+    </div>
+
+    <label for="sesso">Sesso</label>
+        <select name="sesso" class="form-control" [(ngModel)]="persona.sesso" #sesso="ngModel" required>
+            <option value="maschile">Maschile</option>
+            <option value="femminile">Femminile</option>
+            <option value="altro">Altro</option>
+        </select><br>
+    <div [hidden]="sesso.valid || sesso.pristine"
+        class="alert alert-danger">
+        Il Sesso è un campo obbligatorio
+    </div>
+
+    <label for="datanascita">Data di Nascita</label>
+    <input type="date" name="datanascita" class="align-center form-control" [(ngModel)]="persona.datanascita" required #datanascita="ngModel"><br>
+    <div [hidden]="datanascita.valid || datanascita.pristine"
+        class="alert alert-danger">
+        La Data di Nascita è un campo obbligatorio
+    </div>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" class="align-center form-control" [(ngModel)]="persona.email" maxlength = "60" required #email="ngModel"><br>
+    <div [hidden]="email.valid || email.pristine"
+        class="alert alert-danger">
+        La Mail è un campo obbligatorio
+    </div>
+
+    <label for="numerocell">Cellulare</label>
+    <input type="text" name="numerocell" class="align-center form-control" [(ngModel)]="persona.numerocellulare" maxlength = "11"  required #numerocell="ngModel"><br>
+    <div [hidden]="numerocell.valid || numerocell.pristine"
+        class="alert alert-danger">
+        Il Numero di Cellulare è un campo obbligatorio
+    </div>
+
+    <label for="attualeral">Attuale RAL</label>
+    <input type="number" name="attualeral" class="align-center form-control" [(ngModel)]="persona.attualeral" ><br>
+
+    <label for="raldesiderata">RAL desiderata</label>
+    <input type="number" name="raldesiderata" class="align-center form-control" [(ngModel)]="persona.desiderataral" ><br>
+
+    <label for="attualepartitaiva">Attuale Partita IVA</label>
+    <input type="text" name="attualepartitaiva" class="align-center form-control" [(ngModel)]="persona.attualepartitaiva" maxlength = "11" ><br>
+
+    <label for="desideratapartitaiva">Desiderata Partita IVA</label>
+    <input type="text" name="desideratapartitaiva" class="align-center form-control" [(ngModel)]="persona.desideratapartitaiva" maxlength = "11" ><br>
+
+    <label for="stato_occupazionale">Attualmente occupato?</label><br>
+    <label for="si"> Si </label>
+    <input type="checkbox" name="stato_occupazionale" value="" class="align-center form-control" [(ngModel)]="persona.statooccupazionale" ><br>
+
+    <label for="termineoccupazione">Termine Occupazione</label>
+    <input type="date" name="termineoccupazione" class="align-center form-control" [(ngModel)]="persona.termineoccupazione" ><br>
+
+    <label for="allegatocv">Allegato CV</label>
+    <input type="file" name="allegatocv" class="align-center" [(ngModel)]="persona.allegatocv" observeFiles /><br>
+
+    
+</form>
+
+<div>
+
+    <h2> Certificazioni </h2>
+
+    <table class="table table-striped">
+        <thead>
+
+            <tr>
+                <th>Nome Certificazione</th>
+                <th>Settore</th>
+                <th>Elimina</th>
+    
+            </tr>
+            
+        </thead>
+        
+        <tbody>
+
+            <tr *ngFor="let certificazionis of certificazioni">
+                <td>{{ certificazionis.nomecertificazione }}</td>
+                <td>{{ certificazionis.settore }}</td>
+                <td><button type="button" class="btn btn-primary" (click)="removeCert(certificazionis)">Elimina Certificazione</button></td>
+            </tr>
+
+        </tbody>    
+
+    </table>
+</div>
+
+<div>
+
+    <h2> Titoli di studio </h2>
+
+    <table class="table table-striped">
+
+        <tr>
+            <th>Titolo</th>
+            <th>Tipologia</th>
+            <th>Elimina</th>
+
+        </tr>
+            
+        <tr *ngFor="let titolis of titoli">
+            <td>{{titolis.titolo}}</td>
+            <td>{{titolis.tipologia}}</td>
+            <td><button type="button" class="btn btn-primary" (click)="removeTit(titolis)">Elimina Titolo</button></td>
+        </tr>
+
+    </table>
+
+</div>
+
+
+<button type="submit" class="btn btn-primary form-control" (click)="onSubmit()">Aggiungi CV</button>
+
+</div>
+
+</body>
+
+</html>

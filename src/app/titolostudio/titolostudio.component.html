@@ -1,0 +1,45 @@
+<form class="text-center" #titstudform = "ngForm">
+    
+    <label for="titolo">Titolo</label>
+    <input type="text" name="titolo" class="align-center form-control" [(ngModel)]="t.titolo" maxlength = "45" required #titolo="ngModel"><br>
+    <div [hidden]="titolo.valid || titolo.pristine"
+        class="alert alert-danger">
+        Il Titolo è un campo obbligatorio
+    </div>
+
+    <label for="tipologia">Tipologia</label>
+    <input type="text" name="tipologia" class="align-center form-control" [(ngModel)]="t.tipologia" maxlength = "45" required #tipologia="ngModel"><br>
+    <div [hidden]="tipologia.valid || tipologia.pristine"
+        class="alert alert-danger">
+        La Tipologia è un campo obbligatorio
+    </div>
+
+    <label for="istituto">Istituto</label>
+    <input type="text" name="istituto" class="align-center form-control" [(ngModel)]="t.istituto" maxlength = "16"  #istituto="ngModel"><br>
+    
+
+    <label for="viaistituto">Via Istituto</label>
+    <input type="text" name="viaistituto" class="align-center form-control" [(ngModel)]="t.viaistituto" maxlength = "80"  #viaistituto="ngModel"><br>
+
+    
+    <label for="comuneistituto">Comune Istituto</label>
+    <input type="text" name="comuneistituto" class="align-center form-control" [(ngModel)]="t.comuneistituto" maxlength = "80"  #comuneistituto="ngModel"><br>
+
+
+    <label for="cap istituto">CAP Istituto</label>
+    <input type="text" name="cap istituto" class="align-center form-control" [(ngModel)]="t.capistituto" maxlength = "80"  #capistituto="ngModel"><br>
+
+
+    <label for="datainizio">Data Inizio</label>
+    <input type="date" name="datainizio" class="align-center form-control" [(ngModel)]="t.datainizio"  #datainizio="ngModel"><br>
+
+    <label for="datafine">Data Fine</label>
+    <input type="date" name="datafine" class="align-center form-control" [(ngModel)]="t.datafine"  #datafine="ngModel"><br>
+
+    <label for="voto">Voto (in centesimi)</label>
+    <input type="number" name="voto" class="align-center form-control" [(ngModel)]="t.voto" ><br>
+
+    <button type="button" class="btn btn-primary form-control" (click)="addTit(); titstudform.form.reset()" [disabled]="!titstudform.form.valid">Aggiungi</button>
+    <button type="button" class="btn btn-primary form-control" (click)="titstudform.form.reset()">Reset</button>
+   
+ </form>   
